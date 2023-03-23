@@ -1,12 +1,18 @@
 img{
-    height: 500px;
-    
-    object-fit: contain;
+   height: 600px;
+   width: 100%;
+   object-fit: contain;
 }
 .images img:not(.active) {
     display: none;
 }
 
-.container{
-    width: 1200px;
+.slider{
+    background-color: black;
+    
+
 }
+
+
+
+

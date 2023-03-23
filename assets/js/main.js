@@ -41,7 +41,7 @@ for (let i = 0; i < images.length; i++) {
     //imgEl definisce il contenuto dell'immagine prendendolo dall'array con src=$imgsrc
     //mentre la condizione contenuta nella classe dice che se i è uguale a active allora la sceglie altrimenti no
 
-    const imgEl = `<img class="img-fluid ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">`
+    const imgEl = `<img class="object-fit-cover ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">`
 
     console.log(imgEl)
 
