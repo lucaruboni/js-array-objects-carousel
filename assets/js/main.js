@@ -67,6 +67,14 @@ const games = [
 
 console.log(games);
 
+
+//creo un array delle sole immagini
+const images = games.map(immagini => {
+    return immagini.image
+})
+console.log(images)
+
+
 //seleziono l'immagine attiva
 
 let activeImage = 0 ;
