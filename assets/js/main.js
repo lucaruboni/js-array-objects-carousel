@@ -250,6 +250,11 @@ for (i; i < thumbImage.length; i++) {
 let currentImage = document.querySelector('.images>.active')
 
 function changeCurrentImage (newImage) {
+	
+    currentImage.classList.add('fadeIn');
+	setTimeout(function () {
+		currentImage.classList.remove('fadeIn');
+	}, 500);
 
 	currentImage.attributes.src.value = this.attributes.src.value;
 	//listOfImages.forEach(image => image.classList.remove('current-image-list'));
