@@ -9,10 +9,12 @@ img{
 
 .slider{
     background-color: black;
-    
 
 }
 
-
+.img_height{
+    height: calc(600px / 5);    
+    border: 1px solid;
+}
 
 

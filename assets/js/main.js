@@ -65,20 +65,20 @@ const games = [
     
 ]
 
-console.log(games);
+/* console.log(games); */
 
 
 //creo un array delle sole immagini
 const images = games.map(immagini => {
     return immagini.image
 })
-console.log(images)
+/* console.log(images) */
 
 
 //seleziono l'immagine attiva
 
 let activeImage = 0 ;
-console.log(activeImage, 'active image!!!!')
+/* console.log(activeImage, 'active image!!!!') */
 
 //seleziono il contenitore in qui verranno inseriti i tag
 
@@ -188,3 +188,37 @@ prevEl.addEventListener('click', function(){
     console.log(prevImage)
     prevImage.classList.add('active')
 })
+
+
+
+/* THUMBNAILS */
+
+//seleziono il contenitore delle thumbnails nella dom
+
+const thumbContainerElement = document.querySelector('.thumbnail');
+console.log(thumbContainerElement);
+
+//creo un loop
+
+for (let i = 0; i < images.length; i++) {
+
+    //imgSrc seleziona l'immagine attuale
+
+    const imgSrc = images[i];
+
+    //imgEl definisce il contenuto dell'immagine prendendolo dall'array con src=$imgsrc
+    //mentre la condizione contenuta nella classe dice che se i è uguale a active allora la sceglie altrimenti no
+
+    const imgEl = `  
+        <div class="col col_border border-1 border-dark">
+            <img class="object-fit-cover img_height ${i === activeImage ? 'active' : ''}" src="${imgSrc}" alt="">
+        </div>
+        `
+
+    console.log(imgEl)
+
+    //inseriamo il contenuto di imgEl all'interno dell'HTML
+
+    thumbContainerElement.innerHTML += imgEl;
+    
+}
