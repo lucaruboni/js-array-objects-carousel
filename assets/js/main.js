@@ -270,7 +270,7 @@ thumbImage.forEach(function(image) {
 
 
 
-
+/* 
 
  //BONUS giro automatico
 setInterval(autoCarousel, 3000)
@@ -313,3 +313,4 @@ function autoCarousel(){
     nextImage.classList.add('active')
 }
 
+ */
