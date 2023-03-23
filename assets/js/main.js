@@ -78,7 +78,7 @@ const images = games.map(immagini => {
 //seleziono l'immagine attiva
 
 let activeImage = 0 ;
-/* console.log(activeImage, 'active image!!!!') */
+console.log(activeImage, 'active image!!!!') 
 
 //seleziono il contenitore in qui verranno inseriti i tag
 
@@ -229,7 +229,7 @@ for (let i = 0; i < images.length; i++) {
 
 
 const thumbImage = document.querySelectorAll('.thumbnail>.col>img')
-console.log(thumbImage);
+console.log(thumbImage, 'heyy');
     
 
 let imageToClick;
@@ -241,33 +241,28 @@ for (i; i < thumbImage.length; i++) {
     imageToClick = thumbImage[i];
     console.log(thumbImage[i], 'eccomi')
 
-    thumbImage[0].addEventListener('click', function(){
-        console.log('click', thumbImage[0])
-    
-        //rimuovo active alla vecchia classe 
-    
-        const currentSlide = slideImageEl[activeImage]
-        console.log(currentSlide, 'ciaooooooo');
-    
-        
-    
-        currentSlide.classList.remove('active')
-    
-        //aggiungo la classe active all'immagine cliccata
-        const clickedImg = slideImageEl[activeImage]
-          console.log(clickedImg, 'caio')
-         
-    
-          const clickNowImg = thumbImage[0]
-         console.log(clickNowImg, 'clicked img')
-         clickNowImg.classList.add('active')      
-        
-    
-    }) 
+
     
 }
 
-//event listener al click
+
+
+let currentImage = document.querySelector('.images>.active')
+
+function changeCurrentImage (newImage) {
+
+	currentImage.attributes.src.value = this.attributes.src.value;
+	//listOfImages.forEach(image => image.classList.remove('current-image-list'));
+	thumbImage.forEach(function (image) {
+		image.classList.remove('active');
+	})
+	this.classList.add('active');
+}
+
+thumbImage.forEach(function(image) {
+	image.addEventListener('click', changeCurrentImage);
+});
+
 
 
 
@@ -317,5 +312,4 @@ function autoCarousel(){
     console.log(nextImage)
     nextImage.classList.add('active')
 }
-
 
