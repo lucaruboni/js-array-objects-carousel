@@ -228,32 +228,94 @@ for (let i = 0; i < images.length; i++) {
 //seleziono l'elemento da cliccare
 
 
-const clickImage = document.querySelector('.thumbnail>.col>img')
-console.log(clickImage);
+const thumbImage = document.querySelectorAll('.thumbnail>.col>img')
+console.log(thumbImage);
     
+
+let imageToClick;
+
+let i = 0
+
+for (i; i < thumbImage.length; i++) {
+    
+    imageToClick = thumbImage[i];
+    console.log(thumbImage[i], 'eccomi')
+
+    thumbImage[0].addEventListener('click', function(){
+        console.log('click', thumbImage[0])
+    
+        //rimuovo active alla vecchia classe 
+    
+        const currentSlide = slideImageEl[activeImage]
+        console.log(currentSlide, 'ciaooooooo');
+    
+        
+    
+        currentSlide.classList.remove('active')
+    
+        //aggiungo la classe active all'immagine cliccata
+        const clickedImg = slideImageEl[activeImage]
+          console.log(clickedImg, 'caio')
+         
+    
+          const clickNowImg = thumbImage[0]
+         console.log(clickNowImg, 'clicked img')
+         clickNowImg.classList.add('active')      
+        
+    
+    }) 
+    
+}
 
 //event listener al click
 
- clickImage.addEventListener('click', function(){
-    console.log('click')
 
-    //rimuovo active alla vecchia classe 
+
+
+
+
+
+
+
+ //BONUS giro automatico
+setInterval(autoCarousel, 3000)
+function autoCarousel(){
+    console.log('click next')
+
+    //controllo che la lista sia completa
+
+    console.log(slideImageEl)
+
+    //seleziono l'immagine corrente creando una varuabile 
 
     const currentSlide = slideImageEl[activeImage]
-    console.log(currentSlide, 'ciaooooooo');
+    console.log(currentSlide);
 
-    
+    //rimuovo active dall'img corrente
 
     currentSlide.classList.remove('active')
 
-    //aggiungo la classe active all'immagine cliccata
-    const clickedImg = slideImageEl[activeImage]
-      console.log(clickedImg, 'caio')
-     
+    if (activeImage === slideImageEl.length - 1){
+        activeImage = 0
+    }
 
-      const clickNowImg = clickImage
-     console.log(clickNowImg, 'clicked img')
-     clickNowImg.classList.add('active')      
-    
+    else{
+         //incremento alla seconda immagine 
 
-})
+    activeImage++
+    }
+   
+   
+
+    //seleziono l'immagine successiva
+
+    console.log(activeImage)
+    const nextImage = slideImageEl[activeImage]
+
+    //una volta selezionata gli aggiungo active in modo da mostrarla
+
+    console.log(nextImage)
+    nextImage.classList.add('active')
+}
+
+

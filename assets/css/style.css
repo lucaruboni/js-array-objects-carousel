@@ -17,4 +17,16 @@ img{
     border: 1px solid;
 }
 
+.col_border> .active{
+    filter: grayscale(1);
 
+}
+
+main{
+    height: 100vh;
+    background-color: grey;
+}
+
+.rounded_col{
+    border-radius: 30px;
+}
