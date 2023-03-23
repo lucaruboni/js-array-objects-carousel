@@ -222,3 +222,38 @@ for (let i = 0; i < images.length; i++) {
     thumbContainerElement.innerHTML += imgEl;
     
 }
+
+//creo la selezione tramite click sull'immagine
+
+//seleziono l'elemento da cliccare
+
+
+const clickImage = document.querySelector('.thumbnail>.col>img')
+console.log(clickImage);
+    
+
+//event listener al click
+
+ clickImage.addEventListener('click', function(){
+    console.log('click')
+
+    //rimuovo active alla vecchia classe 
+
+    const currentSlide = slideImageEl[activeImage]
+    console.log(currentSlide, 'ciaooooooo');
+
+    
+
+    currentSlide.classList.remove('active')
+
+    //aggiungo la classe active all'immagine cliccata
+    const clickedImg = slideImageEl[activeImage]
+      console.log(clickedImg, 'caio')
+     
+
+      const clickNowImg = clickImage
+     console.log(clickNowImg, 'clicked img')
+     clickNowImg.classList.add('active')      
+    
+
+})
